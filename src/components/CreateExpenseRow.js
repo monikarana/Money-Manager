@@ -1,4 +1,5 @@
 import React from 'react';
+import fecha from 'fecha';
 import '../styles/createExpenseRow.css';
 
 const CreateExpenseRow = (props) => {
@@ -36,6 +37,7 @@ const CreateExpenseRow = (props) => {
 			<td className='create-expense-row-column'>
 				<input 
 					id='date' 
+					defaultValue={fecha.format(new Date(), 'YYYY-MM-DD')}
 					type='date'
 					onKeyPress={createNewExpense}
 				/>
