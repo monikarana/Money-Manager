@@ -19,7 +19,10 @@ const CreateExpenseRow = (props) => {
 			newExpense.date = new Date(date);
 			
 			if(isExpenseValid(newExpense)) {
-				props.onNewExpense(newExpense);	
+				props.onNewExpense(newExpense);
+				document.getElementById('description').value = '';
+				document.getElementById('date').value = fecha.format(new Date(), 'YYYY-MM-DD');
+				document.getElementById('amount').value = '';
 			}
 		}
 	}
