@@ -1,4 +1,16 @@
 .expense-row-column {
+	position: relative;
 	padding: 10px;
 	text-align: center;
+}
+
+.delete-expense-row {
+	position: absolute;
+	left: -5px;
+    cursor: pointer;
+    color: #b3b3b3;
+    padding: 5px;
+}
+.delete-expense-row:hover {
+	color: #939393;
 }

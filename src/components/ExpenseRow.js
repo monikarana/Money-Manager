@@ -5,14 +5,15 @@ const ExpenseRow = (props) => {
 	const expense = props.expense;
 
 	return (
-		<tr className="expense-row">
-			<td className="expense-row-column">
+		<tr className='expense-row'>
+			<td className='expense-row-column'>
+				<span className="delete-expense-row">X</span>
 				{expense.description}
 			</td>
-			<td className="expense-row-column">
+			<td className='expense-row-column'>
 				{expense.date.toDateString()}
 			</td>
-			<td className="expense-row-column">
+			<td className='expense-row-column'>
 				{expense.amount}
 			</td>
 		</tr>
