@@ -1,0 +1,12 @@
+.create-expense-row-column {
+	padding: 10px;
+}
+
+.create-expense-row-column input {
+	width: 90%;
+	height: 30px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	outline: none;
+	padding: 0 10px;
+}
