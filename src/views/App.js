@@ -5,6 +5,7 @@ import CreateExpenseRow from '../components/CreateExpenseRow';
 import ExpenseRow from '../components/ExpenseRow';
 import _ from 'lodash';
 import addExpense from '../actions/addExpense';
+import deleteExpense from '../actions/deleteExpense';
 
 class App extends React.Component {
 	constructor (props) {
@@ -20,8 +21,12 @@ class App extends React.Component {
 		const nextState = addExpense(this.state, expense);
 
 		this.setState(nextState);
+	};
 
-		console.log('Creating new Expnese ', this.state);
+	handleDeleteExpenseRow = (expense) => {
+		const nextState = deleteExpense(this.state, expense);
+		
+		this.setState(nextState);
 	};
 
 	render () {
@@ -51,7 +56,8 @@ class App extends React.Component {
 							return (
 								<ExpenseRow 
 									expense={expense}
-									key={expense.id} 
+									key={expense.id}
+									onDeleteExpenseRow={this.handleDeleteExpenseRow} 
 								/>
 							);
 						})}
