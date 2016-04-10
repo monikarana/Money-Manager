@@ -1,8 +1,10 @@
 import React from 'react';
 import '../styles/expenseRow.css';
+import fecha from 'fecha';
 
 const ExpenseRow = (props) => {
 	const expense = props.expense;
+	const date = fecha.format(fecha.parse(expense.date, 'YYYY-MM-DD'), 'mediumDate');
 
 	const onDeleteExpenseRow = () => {
 		props.onDeleteExpenseRow(expense);
@@ -20,7 +22,7 @@ const ExpenseRow = (props) => {
 				{expense.description}
 			</td>
 			<td className='expense-row-column'>
-				{expense.date.toDateString()}
+				{date}
 			</td>
 			<td className='expense-row-column'>
 				{expense.amount}

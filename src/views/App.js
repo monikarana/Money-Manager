@@ -11,22 +11,35 @@ class App extends React.Component {
 	constructor (props) {
 		super(props);
 
-		this.state = {
+		let initialState;
+
+		try {
+			initialState = JSON.parse(window.localStorage.getItem('expenses'));
+		} catch (e) {}
+
+
+		this.state = initialState || {
 			expenses: {},
 			lastId: 0
 		};
 	}
 
+	updateState = (nextState) => {
+		this.setState(nextState);
+
+		window.localStorage.setItem('expenses', JSON.stringify(nextState));
+	};
+
 	handleCreateNewExpense = (expense) => {
 		const nextState = addExpense(this.state, expense);
 
-		this.setState(nextState);
+		this.updateState(nextState);
 	};
 
 	handleDeleteExpenseRow = (expense) => {
 		const nextState = deleteExpense(this.state, expense);
 		
-		this.setState(nextState);
+		this.updateState(nextState);
 	};
 
 	render () {

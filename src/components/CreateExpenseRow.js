@@ -16,7 +16,7 @@ const CreateExpenseRow = (props) => {
 		if(event.which === 13) {
 			newExpense.description = description;
 			newExpense.amount = amount;
-			newExpense.date = new Date(date);
+			newExpense.date = fecha.format(new Date(date), 'YYYY-MM-DD');
 			
 			if(isExpenseValid(newExpense)) {
 				props.onNewExpense(newExpense);
