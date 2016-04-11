@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = {
   entry: './src/index',
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -29,9 +29,9 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         loaders: ['babel'],
-        include: path.join(__dirname, 'scripts')
+        include: path.join(__dirname, 'src')
       },
       { 
         test: /\.css$/, 
